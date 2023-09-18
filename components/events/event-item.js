@@ -12,7 +12,7 @@ const EventItem = ({ event }) => {
   });
   const formatedAddress = event.location.replace(", ", "\n");
   const exloreLink = `/events/${event.id}`;
-  console.log("event:", event);
+
   return (
     <li className={classes.item}>
       <img src={event.image} alt={event.title} />
