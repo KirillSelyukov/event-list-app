@@ -1,5 +1,5 @@
 import EventList from "@/components/events/event-list";
-import { getAllEvents } from "@/dummy-data";
+import { getFeaturedEvents } from "@/dummy-data";
 
 const HomePage = ({ events }) => {
   return (
@@ -10,7 +10,7 @@ const HomePage = ({ events }) => {
 };
 
 export async function getStaticProps() {
-  const events = await getAllEvents();
+  const events = await getFeaturedEvents();
   return {
     props: {
       events,
