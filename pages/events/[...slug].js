@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { getFilteredEvents } from "@/dummy-data";
@@ -9,13 +9,13 @@ import ErrorAlert from "@/components/ui/error-alert";
 
 const FilteredEventsPage = (props) => {
   const router = useRouter();
-  // const filterData = router.query.slug;
+  const filterData = router.query.slug;
 
-  // if (!filterData) {
-  //   return <p className="center">Loading...</p>;
-  // }
-  // const numYear = +filterData[0];
-  // const numMonth = +filterData[1];
+  if (!filterData) {
+    return <p className="center">Loading...</p>;
+  }
+  const numYear = +filterData[0];
+  const numMonth = +filterData[1];
   if (props.hasError) {
     return (
       <Fragment>
@@ -45,9 +45,7 @@ const FilteredEventsPage = (props) => {
       </Fragment>
     );
   }
-
   const date = new Date(props.date.numYear, props.date.numMonth - 1);
-
   return (
     <Fragment>
       <ResultsTitle date={date} />
